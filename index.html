@@ -465,7 +465,7 @@
 
                     <div class="bal-before" style="width:96.4968152866242%;">
                       <div class="bal-before-inset" style="width: 512px;">
-                        <img id="8-a" src="./materials/video/comp/sacre-ha-4.gif"  alt="GIF Loop">
+                        <img id="8-b" src="./materials/video/comp/sacre-ha-4.gif"  alt="GIF Loop">
                         <div class="bal-beforePosition beforeLabel">
                           Ha-NeRF [Chen 2023]
                         </div>
@@ -611,46 +611,48 @@
     </div>
   </section>
 
-  <script>
-    new BeforeAfter({
-      id: '#example1'
-    });
-    new BeforeAfter({
-      id: '#example2'
-    });
-    new BeforeAfter({
-      id: '#example3'
-    });
-    new BeforeAfter({
-      id: '#example4'
-    });
-    new BeforeAfter({
-      id: '#example5'
-    });
-    new BeforeAfter({
-      id: '#example6'
-    });
-    new BeforeAfter({
-      id: '#example7'
-    });
-    new BeforeAfter({
-      id: '#example8'
-    });
-    new BeforeAfter({
-      id: '#example9'
-    });
-    new BeforeAfter({
-      id: '#example10'
-    });
-    new BeforeAfter({
-      id: '#example11'
-    });
-    new BeforeAfter({
-      id: '#example12'
-    });
+<script>
+    // 创建 BeforeAfter 实例并在 GIF 图片加载完成后开始播放
+    function createBeforeAfterWithGifs(id, gifAId, gifBId) {
+        const beforeAfter = new BeforeAfter({ id: id });
 
+        // 获取 GIF 图片元素
+        const gifA = document.getElementById(gifAId);
+        const gifB = document.getElementById(gifBId);
 
-  </script>
+        // 计数器，用于记录 GIF 图片加载完成的数量
+        let loadedCount = 0;
+
+        // 加载完成回调函数
+        function handleLoad() {
+            // 每次加载完成计数器加1
+            loadedCount++;
+            // 如果两个 GIF 图片都加载完成，则开始播放
+            if (loadedCount === 2) {
+                beforeAfter.play();
+            }
+        }
+
+        // 为每个 GIF 图片添加加载完成事件监听器
+        gifA.addEventListener('load', handleLoad);
+        gifB.addEventListener('load', handleLoad);
+    }
+
+    // 创建 BeforeAfter 实例并处理 GIF 图片
+    createBeforeAfterWithGifs('#example1', '1-a', '1-b');
+    createBeforeAfterWithGifs('#example2', '2-a', '2-b');
+    createBeforeAfterWithGifs('#example3', '3-a', '3-b');
+    createBeforeAfterWithGifs('#example4', '4-a', '4-b');
+    createBeforeAfterWithGifs('#example5', '5-a', '5-b');
+    createBeforeAfterWithGifs('#example6', '6-a', '6-b');
+    createBeforeAfterWithGifs('#example7', '7-a', '7-b');
+    createBeforeAfterWithGifs('#example8', '8-a', '8-b');
+    createBeforeAfterWithGifs('#example9', '9-a', '9-b');
+    createBeforeAfterWithGifs('#example10', '10-a', '10-b');
+    createBeforeAfterWithGifs('#example11', '11-a', '11-b');
+    createBeforeAfterWithGifs('#example12', '12-a', '12-b');
+</script>
+
 
   <!-- 
 <section class="section">
@@ -869,58 +871,6 @@
     </div>
   </footer>
 
-<script>
-  // 获取所有 GIF 图片元素
-  const gifs = document.querySelectorAll('.gif');
-
-  // 计数器，用于记录 GIF 图片加载完成的数量
-  let loadedCount = 0;
-
-  // 加载完成回调函数
-  function handleLoad() {
-    // 每次加载完成计数器加1
-    loadedCount++;
-    // 如果所有 GIF 图片都加载完成，则开始播放
-    if (loadedCount === gifs.length) {
-      playGifs();
-    }
-  }
-
-  // 播放 GIF 图片
-  function playGifs() {
-    // 找到每对 GIF 图片，设置它们的播放位置和播放状态
-    const pairs = [
-      ['1-a', '1-b'],
-      ['2-a', '2-b'],
-      ['3-a', '3-b'],
-      ['4-a', '4-b'],
-      ['5-a', '5-b'],
-      ['6-a', '6-b'],
-      ['7-a', '7-b'],
-      ['8-a', '8-b'],
-      ['9-a', '9-b'],
-      ['10-a', '10-b'],
-      ['11-a', '11-b'],
-      ['12-a', '12-b'],
-      // Add more pairs as needed
-    ];
-    pairs.forEach(pair => {
-      const gif1 = document.getElementById(pair[0]);
-      const gif2 = document.getElementById(pair[1]);
-      // 确保两个 GIF 图片都是可见的
-      gif1.style.visibility = 'visible';
-      gif2.style.visibility = 'visible';
-      // 播放两个 GIF 图片
-      gif1.play();
-      gif2.play();
-    });
-  }
-
-  // 遍历所有 GIF 图片，为每个 GIF 图片添加加载完成事件监听器
-  gifs.forEach(gif => {
-    gif.addEventListener('load', handleLoad);
-  });
-</script>
 
 
 </body>
