@@ -611,7 +611,6 @@
     </div>
   </section>
 
-
 <script>
     // 创建 BeforeAfter 实例并在 GIF 图片加载完成后开始播放
     function createBeforeAfterWithGifs(id, gifAId, gifBId) {
@@ -628,9 +627,9 @@
         function handleLoad() {
             // 每次加载完成计数器加1
             loadedCount++;
-            // 如果两个 GIF 图片都加载完成，则开始播放
+            // 如果两个 GIF 图片都加载完成，则同步重置 GIF 图片的 src 并开始播放
             if (loadedCount === 2) {
-                beforeAfter.play();
+                resetAndPlayGifs(gifA, gifB);
             }
         }
 
@@ -639,20 +638,34 @@
         gifB.addEventListener('load', handleLoad);
     }
 
+    // 重置并同步播放 GIF 图片
+    function resetAndPlayGifs(gifA, gifB) {
+        const srcA = gifA.src;
+        const srcB = gifB.src;
+        gifA.src = '';
+        gifB.src = '';
+        setTimeout(() => {
+            gifA.src = srcA;
+            gifB.src = srcB;
+            beforeAfter.play();
+        }, 50); // 使用微小的延迟来确保 GIF 图片同步重置
+    }
+
     // 创建 BeforeAfter 实例并处理 GIF 图片
-    createBeforeAfterWithGifs('#example1', '1-a', '1-b');
-    createBeforeAfterWithGifs('#example2', '2-a', '2-b');
-    createBeforeAfterWithGifs('#example3', '3-a', '3-b');
-    createBeforeAfterWithGifs('#example4', '4-a', '4-b');
-    createBeforeAfterWithGifs('#example5', '5-a', '5-b');
-    createBeforeAfterWithGifs('#example6', '6-a', '6-b');
-    createBeforeAfterWithGifs('#example7', '7-a', '7-b');
-    createBeforeAfterWithGifs('#example8', '8-a', '8-b');
-    createBeforeAfterWithGifs('#example9', '9-a', '9-b');
-    createBeforeAfterWithGifs('#example10', '10-a', '10-b');
-    createBeforeAfterWithGifs('#example11', '11-a', '11-b');
-    createBeforeAfterWithGifs('#example12', '12-a', '12-b');
+    createBeforeAfterWithGifs('example1', '1-a', '1-b');
+    createBeforeAfterWithGifs('example2', '2-a', '2-b');
+    createBeforeAfterWithGifs('example3', '3-a', '3-b');
+    createBeforeAfterWithGifs('example4', '4-a', '4-b');
+    createBeforeAfterWithGifs('example5', '5-a', '5-b');
+    createBeforeAfterWithGifs('example6', '6-a', '6-b');
+    createBeforeAfterWithGifs('example7', '7-a', '7-b');
+    createBeforeAfterWithGifs('example8', '8-a', '8-b');
+    createBeforeAfterWithGifs('example9', '9-a', '9-b');
+    createBeforeAfterWithGifs('example10', '10-a', '10-b');
+    createBeforeAfterWithGifs('example11', '11-a', '11-b');
+    createBeforeAfterWithGifs('example12', '12-a', '12-b');
 </script>
+
   
   <!-- 
 <section class="section">
