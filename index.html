@@ -612,8 +612,8 @@
   </section>
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gifler/0.2.0/gifler.min.js"></script>
 <script>
+    // 创建 BeforeAfter 实例并在 GIF 图片加载完成后开始播放
     function createBeforeAfterWithGifs(id, gifAId, gifBId) {
         const beforeAfter = new BeforeAfter({ id: id });
 
@@ -621,55 +621,38 @@
         const gifA = document.getElementById(gifAId);
         const gifB = document.getElementById(gifBId);
 
-        let gifAInstance, gifBInstance;
+        // 计数器，用于记录 GIF 图片加载完成的数量
         let loadedCount = 0;
 
         // 加载完成回调函数
         function handleLoad() {
+            // 每次加载完成计数器加1
             loadedCount++;
+            // 如果两个 GIF 图片都加载完成，则开始播放
             if (loadedCount === 2) {
-                // 确保两个 GIF 都加载完成后，同时播放
-                gifAInstance.play();
-                gifBInstance.play();
+                beforeAfter.play();
             }
         }
 
-        // 使用 gifler 加载和控制 GIF
-        gifler(gifA.src).get((a) => {
-            gifAInstance = a;
-            gifAInstance.canvas = gifA;
-            gifAInstance.animateInCanvas(gifA);
-            gifAInstance.onDrawFrame = () => {
-                if (gifAInstance.currentFrame() === gifBInstance.currentFrame()) {
-                    gifBInstance.drawFrame();
-                }
-            };
-            handleLoad();
-        });
-
-        gifler(gifB.src).get((b) => {
-            gifBInstance = b;
-            gifBInstance.canvas = gifB;
-            gifBInstance.animateInCanvas(gifB);
-            handleLoad();
-        });
+        // 为每个 GIF 图片添加加载完成事件监听器
+        gifA.addEventListener('load', handleLoad);
+        gifB.addEventListener('load', handleLoad);
     }
 
     // 创建 BeforeAfter 实例并处理 GIF 图片
-    createBeforeAfterWithGifs('example1', '1-a', '1-b');
-    createBeforeAfterWithGifs('example2', '2-a', '2-b');
-    createBeforeAfterWithGifs('example3', '3-a', '3-b');
-    createBeforeAfterWithGifs('example4', '4-a', '4-b');
-    createBeforeAfterWithGifs('example5', '5-a', '5-b');
-    createBeforeAfterWithGifs('example6', '6-a', '6-b');
-    createBeforeAfterWithGifs('example7', '7-a', '7-b');
-    createBeforeAfterWithGifs('example8', '8-a', '8-b');
-    createBeforeAfterWithGifs('example9', '9-a', '9-b');
-    createBeforeAfterWithGifs('example10', '10-a', '10-b');
-    createBeforeAfterWithGifs('example11', '11-a', '11-b');
-    createBeforeAfterWithGifs('example12', '12-a', '12-b');
+    createBeforeAfterWithGifs('#example1', '1-a', '1-b');
+    createBeforeAfterWithGifs('#example2', '2-a', '2-b');
+    createBeforeAfterWithGifs('#example3', '3-a', '3-b');
+    createBeforeAfterWithGifs('#example4', '4-a', '4-b');
+    createBeforeAfterWithGifs('#example5', '5-a', '5-b');
+    createBeforeAfterWithGifs('#example6', '6-a', '6-b');
+    createBeforeAfterWithGifs('#example7', '7-a', '7-b');
+    createBeforeAfterWithGifs('#example8', '8-a', '8-b');
+    createBeforeAfterWithGifs('#example9', '9-a', '9-b');
+    createBeforeAfterWithGifs('#example10', '10-a', '10-b');
+    createBeforeAfterWithGifs('#example11', '11-a', '11-b');
+    createBeforeAfterWithGifs('#example12', '12-a', '12-b');
 </script>
-
   
   <!-- 
 <section class="section">
