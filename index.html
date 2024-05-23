@@ -622,8 +622,7 @@
         function handleLoad() {
             loadedCount++;
             if (loadedCount === 2) {
-                synchronizeAndPlayGifs(gifA, gifB);
-                const beforeAfter = new BeforeAfter({ id: id });
+                resetAndPlayGifs(gifA, gifB, id);
             }
         }
 
@@ -631,7 +630,7 @@
         gifB.addEventListener('load', handleLoad);
     }
 
-    function synchronizeAndPlayGifs(gifA, gifB) {
+    function resetAndPlayGifs(gifA, gifB, id) {
         const srcA = gifA.src;
         const srcB = gifB.src;
 
@@ -641,9 +640,11 @@
         setTimeout(() => {
             gifA.src = srcA;
             gifB.src = srcB;
-        }, 100); // 确保 GIF 重置
+            const beforeAfter = new BeforeAfter({ id: id });
+        }, 50); // 微小的延迟来确保 GIF 图片同步重置
     }
 
+    // 创建 BeforeAfter 实例并处理 GIF 图片
     createBeforeAfterWithGifs('example1', '1-a', '1-b');
     createBeforeAfterWithGifs('example2', '2-a', '2-b');
     createBeforeAfterWithGifs('example3', '3-a', '3-b');
@@ -657,7 +658,6 @@
     createBeforeAfterWithGifs('example11', '11-a', '11-b');
     createBeforeAfterWithGifs('example12', '12-a', '12-b');
 </script>
-
 
   
   <!-- 
