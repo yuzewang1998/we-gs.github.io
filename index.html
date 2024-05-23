@@ -614,40 +614,33 @@
 
   
 <script>
-  // 创建一个 Promise，用于等待两个 GIF 图片加载完成
 function createBeforeAfterWithGifs(id, gifAId, gifBId) {
-    const beforeAfter = new BeforeAfter({ id: id });
-    const gifs = [document.getElementById(gifAId), document.getElementById(gifBId)];
-    let loadedCount = 0;
+    const container = document.querySelector(id); // 假设 BeforeAfter 的容器是一个元素
+    const gifA = document.getElementById(gifAId);
+    const gifB = document.getElementById(gifBId);
+    let loadCount = 0;
 
-    function handleLoad() {
-        loadedCount++;
-        if (loadedCount === gifs.length) {
-            // 重置所有 GIF 到第一帧
-            gifs.forEach(gif => {
-                // 假设 GIF 是通过 CSS 控制的，这里使用 CSS 来重置
-                // 如果 GIF 是通过其他方式控制的，需要相应修改这里的方法
-                gif.style.animation = 'none';
-                gif.offsetHeight; /* 触发重绘 */
-                gif.style.animation = null;
-            });
-            // 开始播放 BeforeAfter 实例
-            beforeAfter.play();
+    // 函数用于在两个 GIF 都加载完成后开始播放
+    function startPlay() {
+        if (++loadCount === 2) {
+            // 显示 GIF 并开始播放
+            gifA.style.display = 'block';
+            gifB.style.display = 'block';
+            container.classList.add('play'); // 假设 'play' 类用于开始播放 BeforeAfter
         }
     }
 
-    gifs.forEach(gif => {
-        if (gif.complete) {
-            handleLoad();
-        } else {
-            gif.addEventListener('load', handleLoad);
-        }
-    });
+    // 为两个 GIF 图片添加加载完成事件监听器
+    gifA.addEventListener('load', startPlay);
+    gifB.addEventListener('load', startPlay);
+
+    // 初始时隐藏 GIF 图片
+    gifA.style.display = 'none';
+    gifB.style.display = 'none';
 }
 
 // 创建 BeforeAfter 实例并处理 GIF 图片
 createBeforeAfterWithGifs('#example1', '1-a', '1-b');
-      createBeforeAfterWithGifs('#example1', '1-a', '1-b');
     createBeforeAfterWithGifs('#example2', '2-a', '2-b');
     createBeforeAfterWithGifs('#example3', '3-a', '3-b');
     createBeforeAfterWithGifs('#example4', '4-a', '4-b');
