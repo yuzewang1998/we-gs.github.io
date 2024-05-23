@@ -611,35 +611,44 @@
     </div>
   </section>
 
+
+  
 <script>
-    // 创建 BeforeAfter 实例并在 GIF 图片加载完成后开始播放
-    function createBeforeAfterWithGifs(id, gifAId, gifBId) {
-        const beforeAfter = new BeforeAfter({ id: id });
-
-        // 获取 GIF 图片元素
-        const gifA = document.getElementById(gifAId);
-        const gifB = document.getElementById(gifBId);
-
-        // 计数器，用于记录 GIF 图片加载完成的数量
-        let loadedCount = 0;
-
-        // 加载完成回调函数
-        function handleLoad() {
-            // 每次加载完成计数器加1
-            loadedCount++;
-            // 如果两个 GIF 图片都加载完成，则开始播放
-            if (loadedCount === 2) {
-                beforeAfter.play();
+  // 创建一个 Promise，用于等待两个 GIF 图片加载完成
+function waitForImages(gifAId, gifBId) {
+    return Promise.all([
+        new Promise(resolve => {
+            const gifA = document.getElementById(gifAId);
+            if (gifA.complete) {
+                resolve();
+            } else {
+                gifA.addEventListener('load', resolve);
             }
-        }
+        }),
+        new Promise(resolve => {
+            const gifB = document.getElementById(gifBId);
+            if (gifB.complete) {
+                resolve();
+            } else {
+                gifB.addEventListener('load', resolve);
+            }
+        })
+    ]);
+}
 
-        // 为每个 GIF 图片添加加载完成事件监听器
-        gifA.addEventListener('load', handleLoad);
-        gifB.addEventListener('load', handleLoad);
-    }
+// 创建 BeforeAfter 实例并在 GIF 图片加载完成后开始播放
+function createBeforeAfterWithGifs(id, gifAId, gifBId) {
+    const beforeAfter = new BeforeAfter({ id: id });
 
-    // 创建 BeforeAfter 实例并处理 GIF 图片
-    createBeforeAfterWithGifs('#example1', '1-a', '1-b');
+    // 等待两个 GIF 图片加载完成
+    waitForImages(gifAId, gifBId).then(() => {
+        beforeAfter.play();
+    });
+}
+
+// 创建 BeforeAfter 实例并处理 GIF 图片
+createBeforeAfterWithGifs('#example1', '1-a', '1-b');
+      createBeforeAfterWithGifs('#example1', '1-a', '1-b');
     createBeforeAfterWithGifs('#example2', '2-a', '2-b');
     createBeforeAfterWithGifs('#example3', '3-a', '3-b');
     createBeforeAfterWithGifs('#example4', '4-a', '4-b');
@@ -651,8 +660,8 @@
     createBeforeAfterWithGifs('#example10', '10-a', '10-b');
     createBeforeAfterWithGifs('#example11', '11-a', '11-b');
     createBeforeAfterWithGifs('#example12', '12-a', '12-b');
-</script>
 
+</script>
 
   <!-- 
 <section class="section">
