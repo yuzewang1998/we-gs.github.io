@@ -615,34 +615,33 @@
   
 <script>
   // 创建一个 Promise，用于等待两个 GIF 图片加载完成
-function waitForImages(gifAId, gifBId) {
-    return Promise.all([
-        new Promise(resolve => {
-            const gifA = document.getElementById(gifAId);
-            if (gifA.complete) {
-                resolve();
-            } else {
-                gifA.addEventListener('load', resolve);
-            }
-        }),
-        new Promise(resolve => {
-            const gifB = document.getElementById(gifBId);
-            if (gifB.complete) {
-                resolve();
-            } else {
-                gifB.addEventListener('load', resolve);
-            }
-        })
-    ]);
-}
-
-// 创建 BeforeAfter 实例并在 GIF 图片加载完成后开始播放
 function createBeforeAfterWithGifs(id, gifAId, gifBId) {
     const beforeAfter = new BeforeAfter({ id: id });
+    const gifs = [document.getElementById(gifAId), document.getElementById(gifBId)];
+    let loadedCount = 0;
 
-    // 等待两个 GIF 图片加载完成
-    waitForImages(gifAId, gifBId).then(() => {
-        beforeAfter.play();
+    function handleLoad() {
+        loadedCount++;
+        if (loadedCount === gifs.length) {
+            // 重置所有 GIF 到第一帧
+            gifs.forEach(gif => {
+                // 假设 GIF 是通过 CSS 控制的，这里使用 CSS 来重置
+                // 如果 GIF 是通过其他方式控制的，需要相应修改这里的方法
+                gif.style.animation = 'none';
+                gif.offsetHeight; /* 触发重绘 */
+                gif.style.animation = null;
+            });
+            // 开始播放 BeforeAfter 实例
+            beforeAfter.play();
+        }
+    }
+
+    gifs.forEach(gif => {
+        if (gif.complete) {
+            handleLoad();
+        } else {
+            gif.addEventListener('load', handleLoad);
+        }
     });
 }
 
