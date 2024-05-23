@@ -612,49 +612,65 @@
   </section>
 
 
-  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gifler/0.2.0/gifler.min.js"></script>
 <script>
-function createBeforeAfterWithGifs(id, gifAId, gifBId) {
-    const container = document.querySelector(id); // 假设 BeforeAfter 的容器是一个元素
-    const gifA = document.getElementById(gifAId);
-    const gifB = document.getElementById(gifBId);
-    let loadCount = 0;
+    function createBeforeAfterWithGifs(id, gifAId, gifBId) {
+        const beforeAfter = new BeforeAfter({ id: id });
 
-    // 函数用于在两个 GIF 都加载完成后开始播放
-    function startPlay() {
-        if (++loadCount === 2) {
-            // 显示 GIF 并开始播放
-            gifA.style.display = 'block';
-            gifB.style.display = 'block';
-            container.classList.add('play'); // 假设 'play' 类用于开始播放 BeforeAfter
+        // 获取 GIF 图片元素
+        const gifA = document.getElementById(gifAId);
+        const gifB = document.getElementById(gifBId);
+
+        let gifAInstance, gifBInstance;
+        let loadedCount = 0;
+
+        // 加载完成回调函数
+        function handleLoad() {
+            loadedCount++;
+            if (loadedCount === 2) {
+                // 确保两个 GIF 都加载完成后，同时播放
+                gifAInstance.play();
+                gifBInstance.play();
+            }
         }
+
+        // 使用 gifler 加载和控制 GIF
+        gifler(gifA.src).get((a) => {
+            gifAInstance = a;
+            gifAInstance.canvas = gifA;
+            gifAInstance.animateInCanvas(gifA);
+            gifAInstance.onDrawFrame = () => {
+                if (gifAInstance.currentFrame() === gifBInstance.currentFrame()) {
+                    gifBInstance.drawFrame();
+                }
+            };
+            handleLoad();
+        });
+
+        gifler(gifB.src).get((b) => {
+            gifBInstance = b;
+            gifBInstance.canvas = gifB;
+            gifBInstance.animateInCanvas(gifB);
+            handleLoad();
+        });
     }
 
-    // 为两个 GIF 图片添加加载完成事件监听器
-    gifA.addEventListener('load', startPlay);
-    gifB.addEventListener('load', startPlay);
-
-    // 初始时隐藏 GIF 图片
-    gifA.style.display = 'none';
-    gifB.style.display = 'none';
-}
-
-// 创建 BeforeAfter 实例并处理 GIF 图片
-createBeforeAfterWithGifs('#example1', '1-a', '1-b');
-    createBeforeAfterWithGifs('#example2', '2-a', '2-b');
-    createBeforeAfterWithGifs('#example3', '3-a', '3-b');
-    createBeforeAfterWithGifs('#example4', '4-a', '4-b');
-    createBeforeAfterWithGifs('#example5', '5-a', '5-b');
-    createBeforeAfterWithGifs('#example6', '6-a', '6-b');
-    createBeforeAfterWithGifs('#example7', '7-a', '7-b');
-    createBeforeAfterWithGifs('#example8', '8-a', '8-b');
-    createBeforeAfterWithGifs('#example9', '9-a', '9-b');
-    createBeforeAfterWithGifs('#example10', '10-a', '10-b');
-    createBeforeAfterWithGifs('#example11', '11-a', '11-b');
-    createBeforeAfterWithGifs('#example12', '12-a', '12-b');
-
+    // 创建 BeforeAfter 实例并处理 GIF 图片
+    createBeforeAfterWithGifs('example1', '1-a', '1-b');
+    createBeforeAfterWithGifs('example2', '2-a', '2-b');
+    createBeforeAfterWithGifs('example3', '3-a', '3-b');
+    createBeforeAfterWithGifs('example4', '4-a', '4-b');
+    createBeforeAfterWithGifs('example5', '5-a', '5-b');
+    createBeforeAfterWithGifs('example6', '6-a', '6-b');
+    createBeforeAfterWithGifs('example7', '7-a', '7-b');
+    createBeforeAfterWithGifs('example8', '8-a', '8-b');
+    createBeforeAfterWithGifs('example9', '9-a', '9-b');
+    createBeforeAfterWithGifs('example10', '10-a', '10-b');
+    createBeforeAfterWithGifs('example11', '11-a', '11-b');
+    createBeforeAfterWithGifs('example12', '12-a', '12-b');
 </script>
 
+  
   <!-- 
 <section class="section">
   <div class="container is-max-desktop">
