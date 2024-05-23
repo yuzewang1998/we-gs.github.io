@@ -613,45 +613,37 @@
 
 <script>
     // 创建 BeforeAfter 实例并在 GIF 图片加载完成后开始播放
-    function createBeforeAfterWithGifs(containerId, gifAId, gifBId) {
-        // 获取 GIF 图片元素
+    function createBeforeAfterWithGifs(id, gifAId, gifBId) {
         const gifA = document.getElementById(gifAId);
         const gifB = document.getElementById(gifBId);
 
-        // 计数器，用于记录 GIF 图片加载完成的数量
         let loadedCount = 0;
 
-        // 加载完成回调函数
         function handleLoad() {
-            // 每次加载完成计数器加1
             loadedCount++;
-            // 如果两个 GIF 图片都加载完成，则同步重置 GIF 图片的 src 并开始播放
             if (loadedCount === 2) {
-                resetAndPlayGifs(gifA, gifB, containerId);
+                synchronizeAndPlayGifs(gifA, gifB);
+                const beforeAfter = new BeforeAfter({ id: id });
             }
         }
 
-        // 为每个 GIF 图片添加加载完成事件监听器
         gifA.addEventListener('load', handleLoad);
         gifB.addEventListener('load', handleLoad);
     }
 
-    // 重置并同步播放 GIF 图片
-    function resetAndPlayGifs(gifA, gifB, containerId) {
+    function synchronizeAndPlayGifs(gifA, gifB) {
         const srcA = gifA.src;
         const srcB = gifB.src;
+
         gifA.src = '';
         gifB.src = '';
+
         setTimeout(() => {
             gifA.src = srcA;
             gifB.src = srcB;
-            // 在 GIF 图片重置后初始化 BeforeAfter 实例
-            const beforeAfter = new BeforeAfter({ id: containerId });
-            beforeAfter.play();
-        }, 50); // 使用微小的延迟来确保 GIF 图片同步重置
+        }, 100); // 确保 GIF 重置
     }
 
-    // 创建 BeforeAfter 实例并处理 GIF 图片
     createBeforeAfterWithGifs('example1', '1-a', '1-b');
     createBeforeAfterWithGifs('example2', '2-a', '2-b');
     createBeforeAfterWithGifs('example3', '3-a', '3-b');
@@ -665,6 +657,7 @@
     createBeforeAfterWithGifs('example11', '11-a', '11-b');
     createBeforeAfterWithGifs('example12', '12-a', '12-b');
 </script>
+
 
   
   <!-- 
