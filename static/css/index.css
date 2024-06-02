@@ -337,3 +337,10 @@ body {
 .title.is-3{
   color: #4CAF50;
 }
+
+.gif-loader:not([src]){
+  display: none;
+}
+.gif-loader:has([src]){
+  display: block;
+}
