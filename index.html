@@ -13,9 +13,9 @@
 
   <meta charset="utf-8">
   <meta name="description"
-    content="WE-GS, an efficient 3D Gaussian Representation for unconstrained photo collections. ">
+    content="WE-GS: An in-the-wild efficient 3D Gaussian Representation for unconstrained photo collections. ">
   <meta name="keywords"
-    content="WE-GS, Gaussian Splatting, Gaussian, in the wild, unconstrained photo collection, NeRF-W, Ha-NeRF, CR-NeRF, GS-W">
+    content="WE-GS, Gaussian Splatting, Gaussian, in the wild, unconstrained photo collection, NeRF-W, Ha-NeRF, CR-NeRF, GS-W, SWAG">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>WE-GS: An Efficient 3D Gaussian Representation for Unconstrained Photo Collections
   </title>
@@ -52,775 +52,701 @@
 
 <body>
 
-  <!-- <nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-  <div class="navbar-menu">
-    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="">
-      <span class="icon">
-          <i class="fas fa-home"></i>
-      </span>
-      </a>
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More Research
+    <!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
         </a>
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="https://hypernerf.github.io">
-            HyperNeRF
+      </div>
+      <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+          <a class="navbar-item" href="">
+          <span class="icon">
+              <i class="fas fa-home"></i>
+          </span>
           </a>
-          <a class="navbar-item" href="https://nerfies.github.io">
-            Nerfies
-          </a>
-          <a class="navbar-item" href="https://latentfusion.github.io">
-            LatentFusion
-          </a>
-          <a class="navbar-item" href="https://photoshape.github.io">
-            PhotoShape
-          </a>
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              More Research
+            </a>
+            <div class="navbar-dropdown">
+              <a class="navbar-item" href="https://hypernerf.github.io">
+                HyperNeRF
+              </a>
+              <a class="navbar-item" href="https://nerfies.github.io">
+                Nerfies
+              </a>
+              <a class="navbar-item" href="https://latentfusion.github.io">
+                LatentFusion
+              </a>
+              <a class="navbar-item" href="https://photoshape.github.io">
+                PhotoShape
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</nav> -->
+    </nav> -->
 
 
-  <section class="hero">
-    <div class="hero-body">
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-1 publication-title">
+                            <span style="color: #4CAF50 ;font-weight: bolder;">WE-GS</span>: An In-the-wild Efficient 3D Gaussian Representation
+                            for
+                            Unconstrained Photo Collections
+                        </h1>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">
+                                Under Review
+                            </span>
+                        </div>
+
+                        <!-- affiliations -->
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section class="section">
+        <div class="container  is-centered is-max-desktop">
+            <div class="column  is-centered is-full-width">
+                <h2 class="title is-3">Reconstruction Scenes with Variant Appearance and Transient Occluders</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        WE-GS reconstruct scene from unconstrained photo collections in less than 2 hours (<b>15× </b> faster than NeRF-based methods) and can achieve highly realistic novel view synthesis and novel appearance synthesis in real-time, operating at 181 frames FPS (<b>2000 × </b> faster than NeRF-based methods). Compared to vanilla 3DGS, WE-GS achieved an average <b>6.6 dB</b> PSNR improvement in rendering quality on the PhotoTourism dataset, with over a <b>2× </b> reduction in storage.
+                    </p>
+                </div>
+                <div id="results-carousel" class="carousel2 results-carousel" style="display: flex; justify-content: center;">
+                    <div class="item item-steve" style="overflow: hidden;">
+                        <img class="gif-loader" src="./materials/video/video-brand.gif" alt="brand"
+                             style="max-width: 100%; height: 200px; object-fit: cover; display: block; padding: 0;" />
+                    </div>
+                    <div class="item item-steve" style="overflow: hidden;">
+                        <img class="gif-loader" src="./materials/video/video-trevi.gif" alt="brand"
+                             style="max-width: 100%; height: 200px; object-fit: cover; display: block; padding: 0;" />
+                    </div>
+                    <div class="item item-steve" style="overflow: hidden;">
+                        <img class="gif-loader" src="./materials/video/video-sacre.gif" alt="brand"
+                             style="max-width: 120%; height: 200px; object-fit: cover; display: block; padding: 0;" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <!-- Concurrent Work. -->
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-full-width">
+                    <h2 class="title is-3">Overview</h2>
+                    <div class="content has-text-justified">
+                        <img loading="lazy" src="./static/images/method.jpg">
+
+                        <p>Novel View Synthesis (NVS) from unconstrained photo collections is challenging in computer graphics. Recently, 3D Gaussian Splatting (3DGS) has shown promise for photorealistic and real-time NVS of static scenes. Building on 3DGS, we propose an efficient point-based differentiable rendering framework for scene reconstruction from photo collections. Our key innovation is a residual-based spherical harmonic coefficients transfer module that adapts 3DGS to varying lighting conditions and photometric post-processing. This lightweight module can be pre-computed and ensures efficient gradient propagation from rendered images to 3D Gaussian attributes. Additionally, we observe that the appearance encoder and the transient mask predictor, the two most critical parts of NVS from unconstrained photo collections, can be mutually beneficial. We introduce a plug-and-play lightweight spatial attention module to simultaneously predict transient occluders and latent appearance representation for each image. After training and preprocessing, our method aligns with the standard 3DGS format and rendering pipeline, facilitating seamlessly integration into various 3DGS applications. Extensive experiments on diverse datasets show our approach outperforms existing approaches on the rendering quality of novel view and appearance synthesis with high converge and rendering speed.
+                    </div>
+
+                </div>
+            </div>
+            <!--/ Concurrent Work. -->
+        </div>
+    </section>
+
+
+
+
+
+    <section class="section">
+        <div class="container is-max-desktop ">
+            <div class=" has-text-centered">
+                <h2 class="title is-3">Visual Comparisons</h2>
+                <div class="content has-text-justified">
+                  <p>
+
+                    For the interactive visual comparison below, loading a large number of videos may take some time and resources. You can choose to balance this by watching the supplementary video.
+                </p>
+                </div>
+                <div class="columns is-centered">
+                    <!-- Visual Effects. -->
+                    <div class="column">
+                        <div class="content">
+                            <div class="columns is-centered">
+                                <div class="column is-full-width">
+                                    <div id="example1" class="bal-container-small">
+
+                                        <div class="bal-after">
+                                            <img id="1-a" class="gif-loader" data-src="./materials/video/comp/brand-wegs-1.gif">
+                                            <div class="bal-afterPosition afterLabel" style="z-index:1;">
+                                                Ours
+                                            </div>
+                                        </div>
+
+                                        <div class="bal-before" style="width:96.4968152866242%;">
+                                            <div class="bal-before-inset" style="width: 512px;">
+                                                <img id="1-b" class="gif-loader" data-src="./materials/video/comp/brand-cr-1.gif"
+                                                     alt="GIF Loop">
+                                                <div class="bal-beforePosition beforeLabel">
+                                                    CR-NeRF [Yang 2023]
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="bal-handle" style="left:96.4968152866242%;">
+                                            <span class=" handle-left-arrow"></span>
+                                            <span class="handle-right-arrow"></span>
+                                        </div>
+
+                                    </div>
+                                    <img loading="lazy" src="./materials/video/comp/brand-ref-1.png">
+                                    <p>Target Appearance Photo 1</p>
+                                    <div id="example2" class="bal-container-small">
+
+                                        <div class="bal-after">
+                                            <img id="2-a" class="gif-loader" data-src="./materials/video/comp/brand-wegs-2.gif">
+                                            <div class="bal-afterPosition afterLabel">
+                                                Ours
+                                            </div>
+                                        </div>
+
+                                        <div class="bal-before" style="width: 50%;">
+                                            <div class="bal-before-inset" style="width: 512px;">
+                                                <img id="2-b" class="gif-loader" data-src="./materials/video/comp/brand-cr-2.gif">
+                                                <div class="bal-beforePosition beforeLabel">
+                                                    CR-NeRF [Yang 2023]
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="bal-handle" style="left: 50%;">
+                                            <span class=" handle-left-arrow"></span>
+                                            <span class="handle-right-arrow"></span>
+                                        </div>
+                                    </div>
+                                    <img loading="lazy" src="./materials/video/comp/brand-ref-2.png">
+                                    <p>Target Appearance Photo 2</p>
+                                    <div id="example3" class="bal-container-small">
+
+                                        <div class="bal-after">
+                                            <img id="3-a" class="gif-loader" data-src="./materials/video/comp/brand-wegs-3.gif">
+                                            <div class="bal-afterPosition afterLabel">
+                                                Ours
+                                            </div>
+                                        </div>
+
+                                        <div class="bal-before" style="width: 50%;">
+                                            <div class="bal-before-inset" style="width: 512px;">
+                                                <img id="3-b" class="gif-loader" data-src="./materials/video/comp/brand-ha-3.gif">
+                                                <div class="bal-beforePosition beforeLabel">
+                                                    Ha-NeRF [Chen 2023]
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="bal-handle" style="left: 50%;">
+                                            <span class=" handle-left-arrow"></span>
+                                            <span class="handle-right-arrow"></span>
+                                        </div>
+                                    </div>
+                                    <img loading="lazy" src="./materials/video/comp/brand-ref-3.png">
+                                    <p>Target Appearance Photo 3</p>
+                                    <div id="example4" class="bal-container-small">
+
+                                        <div class="bal-after">
+                                            <img id="4-a" class="gif-loader" data-src="./materials/video/comp/brand-wegs-4.gif">
+                                            <div class="bal-afterPosition afterLabel">
+                                                Ours
+                                            </div>
+                                        </div>
+
+                                        <div class="bal-before" style="width: 50%;">
+                                            <div class="bal-before-inset" style="width: 512px;">
+                                                <img id="4-b" class="gif-loader" data-src="./materials/video/comp/brand-ha-4.gif">
+                                                <div class="bal-beforePosition beforeLabel">
+                                                    Ha-NeRF [Chen 2023]
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="bal-handle" style="left: 50%;">
+                                            <span class=" handle-left-arrow"></span>
+                                            <span class="handle-right-arrow"></span>
+                                        </div>
+                                    </div>
+                                    <img loading="lazy" src="./materials/video/comp/brand-ref-4.png">
+                                    <p>Target Appearance Photo 4</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!--/ Visual Effects. -->
+                    <div class="column">
+                        <div class="content">
+                            <div class="columns is-centered">
+                                <div class="column is-full-width">
+
+                                    <div id="example5" class="bal-container-small">
+
+                                        <div class="bal-after">
+                                            <img id="5-a" class="gif-loader"
+                                                 data-src="./materials/video/comp/sacre-wegs-2.gif">
+                                            <div class="bal-afterPosition afterLabel" style="z-index:1;">
+                                                Ours
+                                            </div>
+                                        </div>
+
+                                        <div class="bal-before" style="width:96.4968152866242%;">
+                                            <div class="bal-before-inset" style="width: 512px;">
+                                                <img id="5-b" class="gif-loader" data-src="./materials/video/comp/sacre-cr-2.gif"
+                                                     alt="GIF Loop">
+                                                <div class="bal-beforePosition beforeLabel">
+                                                    CR-NeRF [Yang 2023]
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="bal-handle" style="left:96.4968152866242%;">
+                                            <span class=" handle-left-arrow"></span>
+                                            <span class="handle-right-arrow"></span>
+                                        </div>
+
+                                    </div>
+                                    <img loading="lazy" src="./materials/video/comp/sacre-ref-2.png">
+                                    <p>Target Appearance Photo 1</p>
+                                    <div id="example6" class="bal-container-small">
+
+                                        <div class="bal-after">
+                                            <img id="6-a" class="gif-loader"
+                                                 data-src="./materials/video/comp/sacre-wegs-3.gif">
+                                            <div class="bal-afterPosition afterLabel" style="z-index:1;">
+                                                Ours
+                                            </div>
+                                        </div>
+
+                                        <div class="bal-before" style="width:96.4968152866242%;">
+                                            <div class="bal-before-inset" style="width: 512px;">
+                                                <img id="6-b" class="gif-loader" data-src="./materials/video/comp/sacre-cr-3.gif"
+                                                     alt="GIF Loop">
+                                                <div class="bal-beforePosition beforeLabel">
+                                                    CR-NeRF [Yang 2023]
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="bal-handle" style="left:96.4968152866242%;">
+                                            <span class=" handle-left-arrow"></span>
+                                            <span class="handle-right-arrow"></span>
+                                        </div>
+
+                                    </div>
+                                    <img loading="lazy" src="./materials/video/comp/sacre-ref-3.png">
+                                    <p>Target Appearance Photo 2</p>
+                                    <div id="example7" class="bal-container-small">
+
+                                        <div class="bal-after">
+                                            <img id="7-a" class="gif-loader"
+                                                 data-src="./materials/video/comp/sacre-wegs-1.gif">
+                                            <div class="bal-afterPosition afterLabel" style="z-index:1;">
+                                                Ours
+                                            </div>
+                                        </div>
+
+                                        <div class="bal-before" style="width:96.4968152866242%;">
+                                            <div class="bal-before-inset" style="width: 512px;">
+                                                <img id="7-b" class="gif-loader" data-src="./materials/video/comp/sacre-ha-1.gif"
+                                                     alt="GIF Loop">
+                                                <div class="bal-beforePosition beforeLabel">
+                                                    Ha-NeRF [Chen 2023]
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="bal-handle" style="left:96.4968152866242%;">
+                                            <span class=" handle-left-arrow"></span>
+                                            <span class="handle-right-arrow"></span>
+                                        </div>
+
+                                    </div>
+                                    <img loading="lazy" src="./materials/video/comp/sacre-ref-1.png">
+                                    <p>Target Appearance Photo 3</p>
+                                    <div id="example8" class="bal-container-small">
+
+                                        <div class="bal-after">
+                                            <img id="8-a" class="gif-loader"
+                                                 data-src="./materials/video/comp/sacre-wegs-4.gif">
+                                            <div class="bal-afterPosition afterLabel" style="z-index:1;">
+                                                Ours
+                                            </div>
+                                        </div>
+
+                                        <div class="bal-before" style="width:96.4968152866242%;">
+                                            <div class="bal-before-inset" style="width: 512px;">
+                                                <img id="8-b" class="gif-loader" data-src="./materials/video/comp/sacre-ha-4.gif"
+                                                     alt="GIF Loop">
+                                                <div class="bal-beforePosition beforeLabel">
+                                                    Ha-NeRF [Chen 2023]
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="bal-handle" style="left:96.4968152866242%;">
+                                            <span class=" handle-left-arrow"></span>
+                                            <span class="handle-right-arrow"></span>
+                                        </div>
+
+                                    </div>
+                                    <img loading="lazy" src="./materials/video/comp/sacre-ref-4.png">
+                                    <p>Target Appearance Photo 4</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Matting. -->
+                    <div class="column">
+                        <div class="columns is-centered">
+                            <div class="column content">
+                                <div id="example9" class="bal-container-small">
+
+                                    <div class="bal-after">
+                                        <img id="9-a" class="gif-loader" data-src="./materials/video/comp/trevi-wegs-2.gif">
+                                        <div class="bal-afterPosition afterLabel" style="z-index:1;">
+                                            Ours
+                                        </div>
+                                    </div>
+
+                                    <div class="bal-before" style="width:96.4968152866242%;">
+                                        <div class="bal-before-inset" style="width: 512px;">
+                                            <img id="9-b" class="gif-loader" data-src="./materials/video/comp/trevi-cr-2.gif" alt="GIF Loop">
+                                            <div class="bal-beforePosition beforeLabel">
+                                                CR-NeRF [Yang 2023]
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="bal-handle" style="left:96.4968152866242%;">
+                                        <span class=" handle-left-arrow"></span>
+                                        <span class="handle-right-arrow"></span>
+                                    </div>
+
+                                </div>
+                                <img loading="lazy" src="./materials/video/comp/trevi-ref-2.png">
+                                <p>Target Appearance Photo 1</p>
+                                <div id="example10" class="bal-container-small">
+
+                                    <div class="bal-after">
+                                        <img id="10-a" class="gif-loader" data-src="./materials/video/comp/trevi-wegs-4.gif">
+                                        <div class="bal-afterPosition afterLabel" style="z-index:1;">
+                                            Ours
+                                        </div>
+                                    </div>
+
+                                    <div class="bal-before" style="width:96.4968152866242%;">
+                                        <div class="bal-before-inset" style="width: 512px;">
+                                            <img id="10-b" class="gif-loader" data-src="./materials/video/comp/trevi-cr-4.gif" alt="GIF Loop">
+                                            <div class="bal-beforePosition beforeLabel">
+                                                CR-NeRF [Yang 2023]
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="bal-handle" style="left:96.4968152866242%;">
+                                        <span class=" handle-left-arrow"></span>
+                                        <span class="handle-right-arrow"></span>
+                                    </div>
+
+                                </div>
+                                <img loading="lazy" src="./materials/video/comp/trevi-ref-4.png">
+                                <p>Target Appearance Photo 2</p>
+                                <div id="example11" class="bal-container-small">
+
+                                    <div class="bal-after">
+                                        <img id="11-a" class="gif-loader" data-src="./materials/video/comp/trevi-wegs-1.gif">
+                                        <div class="bal-afterPosition afterLabel" style="z-index:1;">
+                                            Ours
+                                        </div>
+                                    </div>
+
+                                    <div class="bal-before" style="width:96.4968152866242%;">
+                                        <div class="bal-before-inset" style="width: 512px;">
+                                            <img id="11-b" class="gif-loader" data-src="./materials/video/comp/trevi-ha-1.gif" alt="GIF Loop">
+                                            <div class="bal-beforePosition beforeLabel">
+                                                Ha-NeRF [Chen 2023]
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="bal-handle" style="left:96.4968152866242%;">
+                                        <span class=" handle-left-arrow"></span>
+                                        <span class="handle-right-arrow"></span>
+                                    </div>
+
+                                </div>
+                                <img loading="lazy" src="./materials/video/comp/trevi-ref-1.png">
+                                <p>Target Appearance Photo 3</p>
+
+
+
+                                <div id="example12" class="bal-container-small">
+
+                                    <div class="bal-after">
+                                        <img id="12-a" class="gif-loader" data-src="./materials/video/comp/trevi-wegs-3.gif">
+                                        <div class="bal-afterPosition afterLabel" style="z-index:1;">
+                                            Ours
+                                        </div>
+                                    </div>
+
+                                    <div class="bal-before" style="width:96.4968152866242%;">
+                                        <div class="bal-before-inset" style="width: 512px;">
+                                            <img id="12-b" class="gif-loader" data-src="./materials/video/comp/trevi-ha-3.gif" alt="GIF Loop">
+                                            <div class="bal-beforePosition beforeLabel">
+                                                Ha-NeRF [Chen 2023]
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="bal-handle" style="left:96.4968152866242%;">
+                                        <span class=" handle-left-arrow"></span>
+                                        <span class="handle-right-arrow"></span>
+                                    </div>
+
+                                </div>
+                                <img loading="lazy" src="./materials/video/comp/trevi-ref-3.png">
+                                <p>Target Appearance Photo 4</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- <section class="section">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">
-              <span style="color: #4CAF50 ;font-weight: bolder;">WE-GS</span>: An Efficient 3D Gaussian Representation
-              for
-              Unconstrained Photo Collections
-            </h1>
-            <div class="is-size-5 publication-authors">
-              <span class="author-block">
-                Under Review</span>
-            </div>
+          <div class="column is-full-width">
+            <h2 class="title is-3">Related Links</h2>
 
-            <!-- affiliations -->
+            <div class="content has-text-justified">
+              <p>
+                Needs update
+              </p>
 
-
-
-
-            <!-- TODO: update paper and video link once upload -->
-            <div class="column has-text-centered">
-              <!-- <div class="publication-links"> -->
-
-              <!-- PDF Link. -->
-              <span class="link-block">
-                <a href="https://arxiv.org/pdf/2403.20309.pdf"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
-              </span>
-
-              <span class="link-block">
-                <a href="https://arxiv.org/abs/2403.20309" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-
-              <!-- Video Link. -->
-              <span class="link-block">
-                <a href="https://youtu.be/_9aQHLHHoEM" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="fab fa-youtube"></i>
-                  </span>
-                  <span>Video</span>
-                </a>
-              </span>
-              <!-- Code Link. -->
-              <span class="link-block">
-                <a href="https://instantsplat.github.io/" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code (coming soon)</span>
-                </a>
-              </span>
-              <!-- </div> -->
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section> -->
 
-
-
-
-  <section class="section">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Rendering</h2>
-        <p>
-          1
-        </p>
-        <div id="results-carousel" class="carousel2 results-carousel" style="display: flex; justify-content: center;">
-          <div class="item item-steve" style="overflow: hidden;">
-            <img class="gif-loader" src="./materials/video/video-brand.gif" alt="brand"
-              style="max-width: 100%; height: 200px; object-fit: cover; display: block; padding: 0;" />
-          </div>
-          <div class="item item-steve" style="overflow: hidden;">
-            <img class="gif-loader" src="./materials/video/video-trevi.gif" alt="brand"
-              style="max-width: 100%; height: 200px; object-fit: cover; display: block; padding: 0;" />
-          </div>
-          <div class="item item-steve" style="overflow: hidden;">
-            <img class="gif-loader" src="./materials/video/video-sacre.gif" alt="brand"
-              style="max-width: 120%; height: 200px; object-fit: cover; display: block; padding: 0;" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-
-
-
-  <section class="section">
-    <div class="container is-max-desktop">
-      <!-- Abstract. -->
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Overview</h2>
-          <div class="content has-text-justified">
-            <p>
-              Our framework, <strong>WE-GS</strong>,
-            </p>
-          </div>
-        </div>
-      </div>
-      <!--/ Abstract. -->
-
-      <!-- The following is the way to insert through link -->
-      <!-- <div class="publication-video">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/470hul75bSM?si=7F9NL8zWbU9GtqHb"
-            title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; 
-          encrypted-media; " allowfullscreen></iframe>
-        </div> -->
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container is-max-desktop">
-      <!-- Concurrent Work. -->
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-full-width">
-          <h2 class="title is-3">Method Overview</h2>
-          <div class="content has-text-justified">
-            <img loading="lazy" src="./static/images/method.jpg">
-
-            <p>An illustrative overview of our method above, we introduce a new ...........
-          </div>
-        </div>
-      </div>
-      <!--/ Concurrent Work. -->
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container is-max-desktop ">
-      <div class=" has-text-centered">
-        <h2 class="title is-3">Visual Comparisons</h2>
-        <div class="content has-text-justified">
-          <p>
-          </p>
-        </div>
-        <div class="columns is-centered">
-          <!-- Visual Effects. -->
-          <div class="column">
-            <div class="content">
-              <div class="columns is-centered">
-                <div class="column is-full-width">
-                  <div id="example1" class="bal-container-small">
-
-                    <div class="bal-after">
-                      <img id="1-a" class="gif-loader" data-src="./materials/video/comp/brand-wegs-1.gif">
-                      <div class="bal-afterPosition afterLabel" style="z-index:1;">
-                        Ours
-                      </div>
-                    </div>
-
-                    <div class="bal-before" style="width:96.4968152866242%;">
-                      <div class="bal-before-inset" style="width: 512px;">
-                        <img id="1-b" class="gif-loader" data-src="./materials/video/comp/brand-cr-1.gif"
-                          alt="GIF Loop">
-                        <div class="bal-beforePosition beforeLabel">
-                          CR-NeRF [Yang 2023]
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="bal-handle" style="left:96.4968152866242%;">
-                      <span class=" handle-left-arrow"></span>
-                      <span class="handle-right-arrow"></span>
-                    </div>
-
-                  </div>
-                  <img loading="lazy" src="./materials/video/comp/brand-ref-1.png">
-                  <p>Target Appearance Photo 1</p>
-                  <div id="example2" class="bal-container-small">
-
-                    <div class="bal-after">
-                      <img id="2-a" class="gif-loader" data-src="./materials/video/comp/brand-wegs-2.gif">
-                      <div class="bal-afterPosition afterLabel">
-                        Ours
-                      </div>
-                    </div>
-
-                    <div class="bal-before" style="width: 50%;">
-                      <div class="bal-before-inset" style="width: 512px;">
-                        <img id="2-b" class="gif-loader" data-src="./materials/video/comp/brand-cr-2.gif">
-                        <div class="bal-beforePosition beforeLabel">
-                          CR-NeRF [Yang 2023]
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="bal-handle" style="left: 50%;">
-                      <span class=" handle-left-arrow"></span>
-                      <span class="handle-right-arrow"></span>
-                    </div>
-                  </div>
-                  <img loading="lazy" src="./materials/video/comp/brand-ref-2.png">
-                  <p>Target Appearance Photo 2</p>
-                  <div id="example3" class="bal-container-small">
-
-                    <div class="bal-after">
-                      <img id="3-a" class="gif-loader" data-src="./materials/video/comp/brand-wegs-3.gif">
-                      <div class="bal-afterPosition afterLabel">
-                        Ours
-                      </div>
-                    </div>
-
-                    <div class="bal-before" style="width: 50%;">
-                      <div class="bal-before-inset" style="width: 512px;">
-                        <img id="3-b" class="gif-loader" data-src="./materials/video/comp/brand-ha-3.gif">
-                        <div class="bal-beforePosition beforeLabel">
-                          Ha-NeRF [Chen 2023]
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="bal-handle" style="left: 50%;">
-                      <span class=" handle-left-arrow"></span>
-                      <span class="handle-right-arrow"></span>
-                    </div>
-                  </div>
-                  <img loading="lazy" src="./materials/video/comp/brand-ref-3.png">
-                  <p>Target Appearance Photo 3</p>
-                  <div id="example4" class="bal-container-small">
-
-                    <div class="bal-after">
-                      <img id="4-a" class="gif-loader" data-src="./materials/video/comp/brand-wegs-4.gif">
-                      <div class="bal-afterPosition afterLabel">
-                        Ours
-                      </div>
-                    </div>
-
-                    <div class="bal-before" style="width: 50%;">
-                      <div class="bal-before-inset" style="width: 512px;">
-                        <img id="4-b" class="gif-loader" data-src="./materials/video/comp/brand-ha-4.gif">
-                        <div class="bal-beforePosition beforeLabel">
-                          Ha-NeRF [Chen 2023]
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="bal-handle" style="left: 50%;">
-                      <span class=" handle-left-arrow"></span>
-                      <span class="handle-right-arrow"></span>
-                    </div>
-                  </div>
-                  <img loading="lazy" src="./materials/video/comp/brand-ref-4.png">
-                  <p>Target Appearance Photo 4</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-          <!--/ Visual Effects. -->
-          <div class="column">
-            <div class="content">
-              <div class="columns is-centered">
-                <div class="column is-full-width">
-
-                  <div id="example5" class="bal-container-small">
-
-                    <div class="bal-after">
-                      <img id="5-a" class="gif-loader"
-                        data-src="./materials/video/comp/sacre-wegs-2.gif">
-                      <div class="bal-afterPosition afterLabel" style="z-index:1;">
-                        Ours
-                      </div>
-                    </div>
-
-                    <div class="bal-before" style="width:96.4968152866242%;">
-                      <div class="bal-before-inset" style="width: 512px;">
-                        <img id="5-b" class="gif-loader" data-src="./materials/video/comp/sacre-cr-2.gif"
-                          alt="GIF Loop">
-                        <div class="bal-beforePosition beforeLabel">
-                          CR-NeRF [Yang 2023]
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="bal-handle" style="left:96.4968152866242%;">
-                      <span class=" handle-left-arrow"></span>
-                      <span class="handle-right-arrow"></span>
-                    </div>
-
-                  </div>
-                  <img loading="lazy" src="./materials/video/comp/sacre-ref-2.png">
-                  <p>Target Appearance Photo 1</p>
-                  <div id="example6" class="bal-container-small">
-
-                    <div class="bal-after">
-                      <img id="6-a" class="gif-loader"
-                        data-src="./materials/video/comp/sacre-wegs-3.gif">
-                      <div class="bal-afterPosition afterLabel" style="z-index:1;">
-                        Ours
-                      </div>
-                    </div>
-
-                    <div class="bal-before" style="width:96.4968152866242%;">
-                      <div class="bal-before-inset" style="width: 512px;">
-                        <img id="6-b" class="gif-loader" data-src="./materials/video/comp/sacre-cr-3.gif"
-                          alt="GIF Loop">
-                        <div class="bal-beforePosition beforeLabel">
-                          CR-NeRF [Yang 2023]
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="bal-handle" style="left:96.4968152866242%;">
-                      <span class=" handle-left-arrow"></span>
-                      <span class="handle-right-arrow"></span>
-                    </div>
-
-                  </div>
-                  <img loading="lazy" src="./materials/video/comp/sacre-ref-3.png">
-                  <p>Target Appearance Photo 2</p>
-                  <div id="example7" class="bal-container-small">
-
-                    <div class="bal-after">
-                      <img id="7-a" class="gif-loader"
-                        data-src="./materials/video/comp/sacre-wegs-1.gif">
-                      <div class="bal-afterPosition afterLabel" style="z-index:1;">
-                        Ours
-                      </div>
-                    </div>
-
-                    <div class="bal-before" style="width:96.4968152866242%;">
-                      <div class="bal-before-inset" style="width: 512px;">
-                        <img id="7-b" class="gif-loader" data-src="./materials/video/comp/sacre-ha-1.gif"
-                          alt="GIF Loop">
-                        <div class="bal-beforePosition beforeLabel">
-                          Ha-NeRF [Chen 2023]
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="bal-handle" style="left:96.4968152866242%;">
-                      <span class=" handle-left-arrow"></span>
-                      <span class="handle-right-arrow"></span>
-                    </div>
-
-                  </div>
-                  <img loading="lazy" src="./materials/video/comp/sacre-ref-1.png">
-                  <p>Target Appearance Photo 3</p>
-                  <div id="example8" class="bal-container-small">
-
-                    <div class="bal-after">
-                      <img id="8-a" class="gif-loader"
-                        data-src="./materials/video/comp/sacre-wegs-4.gif">
-                      <div class="bal-afterPosition afterLabel" style="z-index:1;">
-                        Ours
-                      </div>
-                    </div>
-
-                    <div class="bal-before" style="width:96.4968152866242%;">
-                      <div class="bal-before-inset" style="width: 512px;">
-                        <img id="8-b" class="gif-loader" data-src="./materials/video/comp/sacre-ha-4.gif"
-                          alt="GIF Loop">
-                        <div class="bal-beforePosition beforeLabel">
-                          Ha-NeRF [Chen 2023]
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="bal-handle" style="left:96.4968152866242%;">
-                      <span class=" handle-left-arrow"></span>
-                      <span class="handle-right-arrow"></span>
-                    </div>
-
-                  </div>
-                  <img loading="lazy" src="./materials/video/comp/sacre-ref-4.png">
-                  <p>Target Appearance Photo 4</p>
-
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Matting. -->
-          <div class="column">
+    <section class="section">
+        <div class="container is-max-desktop">
             <div class="columns is-centered">
-              <div class="column content">
-                <div id="example9" class="bal-container-small">
+                <div class="column is-full-width">
+                    <h2 class="title is-3">Appearance Interpolation Results</h2>
 
-                  <div class="bal-after">
-                    <img id="9-a" class="gif-loader" data-src="./materials/video/comp/trevi-wegs-2.gif">
-                    <div class="bal-afterPosition afterLabel" style="z-index:1;">
-                      Ours
+                    <h3 class="subtitle is-4" style="text-align: center;">Brandenburg Gate</h3>
+                    <!-- 添加顶部图像 -->
+                    <div style="text-align: center;">
+                        <img loading="lazy" src="./materials/video/interpolation/brand/0.jpg" alt="Top Image"
+                             style="max-width: 200px; max-height: 200px;">
+                        <div>Appearance 0</div>
                     </div>
-                  </div>
 
-                  <div class="bal-before" style="width:96.4968152866242%;">
-                    <div class="bal-before-inset" style="width: 512px;">
-                      <img id="9-b" class="gif-loader" data-src="./materials/video/comp/trevi-cr-2.gif" alt="GIF Loop">
-                      <div class="bal-beforePosition beforeLabel">
-                        CR-NeRF [Yang 2023]
-                      </div>
+                    <!-- 第一行 -->
+                    <div style="display: flex;">
+                        <video width="350" controls autoplay loop>
+                            <source src="./materials/video/interpolation/brand/1.mp4" type="video/mp4">
+                        </video>
+                        <video width="350" controls autoplay loop>
+                            <source src="./materials/video/interpolation/brand/2.mp4" type="video/mp4">
+                        </video>
+                        <video width="350" controls autoplay loop>
+                            <source src="./materials/video/interpolation/brand/3.mp4" type="video/mp4">
+                        </video>
                     </div>
-                  </div>
 
-                  <div class="bal-handle" style="left:96.4968152866242%;">
-                    <span class=" handle-left-arrow"></span>
-                    <span class="handle-right-arrow"></span>
-                  </div>
+                    <!-- 第二行 -->
+                    <div style="display: flex;">
+                        <div style="text-align: center;">
+                            <img loading="lazy" src="./materials/video/interpolation/brand/1.png" alt="Image 1"
+                                 style="max-width: 200px;max-height: 200px; margin: 0 75px;">
+                            <div>Appearance 1</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <img loading="lazy" src="./materials/video/interpolation/brand/2.png" alt="Image 2"
+                                 style="max-width: 230px;max-height: 230px; margin: 0 75px;">
+                            <div>Appearance 2</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <img loading="lazy" src="./materials/video/interpolation/brand/3.png" alt="Image 3"
+                                 style="max-width: 200px;max-height: 200px; margin: 0 75px;">
+                            <div>Appearance 3</div>
+                        </div>
+                    </div>
 
+
+                    <hr style="margin: 30px auto; width: 50%; border-top: 2px solid #ccc;">
+                    <h3 class="subtitle is-4" style="text-align: center;">Trevi Fountain</h3>
+
+                    <!-- 添加顶部图像 -->
+                    <div style="text-align: center;">
+                        <img loading="lazy" src="./materials/video/interpolation/trevi/0.jpg" alt="Top Image"
+                             style="max-width: 100%; max-height: 200px;">
+                        <div>Appearance 0</div>
+                    </div>
+
+                    <!-- 第一行 -->
+                    <div style="display: flex;">
+                        <video width="350" controls autoplay loop>
+                            <source src="./materials/video/interpolation/trevi/1.mp4" type="video/mp4">
+                        </video>
+                        <video width="350" controls autoplay loop>
+                            <source src="./materials/video/interpolation/trevi/2.mp4" type="video/mp4">
+                        </video>
+                        <video width="350" controls autoplay loop>
+                            <source src="./materials/video/interpolation/trevi/3.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <!-- 第二行 -->
+                    <div style="display: flex;">
+                        <div style="text-align: center;">
+                            <img loading="lazy" src="./materials/video/interpolation/trevi/1.png" alt="Image 1"
+                                 style="max-width: 220px;max-height: 200; margin: 0 75px;">
+                            <div>Appearance 1</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <img loading="lazy" src="./materials/video/interpolation/trevi/2.png" alt="Image 2"
+                                 style="max-width: 200px;max-height: 160px; margin: 0 125px;">
+                            <div>Appearance 2</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <img loading="lazy" src="./materials/video/interpolation/trevi/3.png" alt="Image 3"
+                                 style="max-width: 240px;max-height: 200px; margin: 0 60px;">
+                            <div>Appearance 3</div>
+                        </div>
+                    </div>
+
+                    <hr style="margin: 30px auto; width: 50%; border-top: 2px solid #ccc;">
+                    <h3 class="subtitle is-4" style="text-align: center;">Sacre Coeur</h3>
+
+                    <!-- 添加顶部图像 -->
+                    <div style="text-align: center;">
+                        <img loading="lazy" src="./materials/video/interpolation/sacre/0.jpg" alt="Top Image"
+                             style="max-width: 100%; max-height: 200px;">
+                        <div>Appearance 0</div>
+                    </div>
+
+                    <!-- 第一行 -->
+                    <div style="display: flex;">
+                        <video width="350" controls autoplay loop>
+                            <source src="./materials/video/interpolation/sacre/1.mp4" type="video/mp4">
+                        </video>
+                        <video width="350" controls autoplay loop>
+                            <source src="./materials/video/interpolation/sacre/2.mp4" type="video/mp4">
+                        </video>
+                        <video width="350" controls autoplay loop>
+                            <source src="./materials/video/interpolation/sacre/3.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+
+                    <!-- 第二行 -->
+                    <div style="display: flex;">
+                        <div style="text-align: center;">
+                            <img loading="lazy" src="./materials/video/interpolation/sacre/1.png" alt="Image 1"
+                                 style="max-width: 200px;max-height: 200; margin: 0 75px;">
+                            <div>Appearance 1</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <img loading="lazy" src="./materials/video/interpolation/sacre/2.png" alt="Image 2"
+                                 style="max-width: 200px;max-height: 155px; margin: 0 145px;">
+                            <div>Appearance 2</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <img loading="lazy" src="./materials/video/interpolation/sacre/3.png" alt="Image 3"
+                                 style="max-width: 200px;max-height: 200px; margin: 0 50px;">
+                            <div>Appearance 3</div>
+                        </div>
+                    </div>
                 </div>
-                <img loading="lazy" src="./materials/video/comp/trevi-ref-2.png">
-                <p>Target Appearance Photo 1</p>
-                <div id="example10" class="bal-container-small">
+            </div>
+        </div>
+    </section>
 
-                  <div class="bal-after">
-                    <img id="10-a" class="gif-loader" data-src="./materials/video/comp/trevi-wegs-4.gif">
-                    <div class="bal-afterPosition afterLabel" style="z-index:1;">
-                      Ours
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-full-width">
+                    <h2 class="title is-3">More Comparison Results</h2>
+                    <div class="content has-text-justified">
+                        <img loading="lazy" src="./static/images/exp_quati_pt.jpg">
+                        <p>Comparison on PhotoTourism dataset.</p>
                     </div>
-                  </div>
-
-                  <div class="bal-before" style="width:96.4968152866242%;">
-                    <div class="bal-before-inset" style="width: 512px;">
-                      <img id="10-b" class="gif-loader" data-src="./materials/video/comp/trevi-cr-4.gif" alt="GIF Loop">
-                      <div class="bal-beforePosition beforeLabel">
-                        CR-NeRF [Yang 2023]
-                      </div>
+                    <div class="content has-text-justified">
+                        <img loading="lazy" src="./static/images/exp_quati_nerf-osr.jpg">
+                        <p>Comparison on NeRF-OSR dataset.</p>
                     </div>
-                  </div>
-
-                  <div class="bal-handle" style="left:96.4968152866242%;">
-                    <span class=" handle-left-arrow"></span>
-                    <span class="handle-right-arrow"></span>
-                  </div>
-
                 </div>
-                <img loading="lazy" src="./materials/video/comp/trevi-ref-4.png">
-                <p>Target Appearance Photo 2</p>
-                <div id="example11" class="bal-container-small">
+            </div>
+        </div>
+    </section>
 
-                  <div class="bal-after">
-                    <img id="11-a" class="gif-loader" data-src="./materials/video/comp/trevi-wegs-1.gif">
-                    <div class="bal-afterPosition afterLabel" style="z-index:1;">
-                      Ours
+
+    <!-- TODO: update the arxiv link and github -->
+    <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+                <!-- <a class="icon-link" href="">
+                  <i class="fas fa-file-pdf"></i>
+                </a> -->
+                <!-- <a class="icon-link" href="" class="external-link" disabled>
+                  <i class="fab fa-github"></i> -->
+                </a>
+            </div>
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <div class="content">
+                        <p>
+                            This website is licensed under a <a rel="license"
+                                                                href="http://creativecommons.org/licenses/by-sa/4.0/">
+                                Creative
+                                Commons Attribution-ShareAlike 4.0 International License
+                            </a>.
+                        </p>
+                        <p>
+                            We thank the authors of
+                            We thank the authors of <a href="https://nerfies.github.io/">Nerfies</a> that kindly open sourced the
+                            template of this website.
+                        </p>
                     </div>
-                  </div>
-
-                  <div class="bal-before" style="width:96.4968152866242%;">
-                    <div class="bal-before-inset" style="width: 512px;">
-                      <img id="11-b" class="gif-loader" data-src="./materials/video/comp/trevi-ha-1.gif" alt="GIF Loop">
-                      <div class="bal-beforePosition beforeLabel">
-                        Ha-NeRF [Chen 2023]
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="bal-handle" style="left:96.4968152866242%;">
-                    <span class=" handle-left-arrow"></span>
-                    <span class="handle-right-arrow"></span>
-                  </div>
-
                 </div>
-                <img loading="lazy" src="./materials/video/comp/trevi-ref-1.png">
-                <p>Target Appearance Photo 3</p>
-
-
-
-                <div id="example12" class="bal-container-small">
-
-                  <div class="bal-after">
-                    <img id="12-a" class="gif-loader" data-src="./materials/video/comp/trevi-wegs-3.gif">
-                    <div class="bal-afterPosition afterLabel" style="z-index:1;">
-                      Ours
-                    </div>
-                  </div>
-
-                  <div class="bal-before" style="width:96.4968152866242%;">
-                    <div class="bal-before-inset" style="width: 512px;">
-                      <img id="12-b" class="gif-loader" data-src="./materials/video/comp/trevi-ha-3.gif" alt="GIF Loop">
-                      <div class="bal-beforePosition beforeLabel">
-                        Ha-NeRF [Chen 2023]
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="bal-handle" style="left:96.4968152866242%;">
-                    <span class=" handle-left-arrow"></span>
-                    <span class="handle-right-arrow"></span>
-                  </div>
-
-                </div>
-                <img loading="lazy" src="./materials/video/comp/trevi-ref-3.png">
-                <p>Target Appearance Photo 4</p>
-              </div>
             </div>
-          </div>
-
-
-
         </div>
-      </div>
-
-
-    </div>
-  </section>
-
-  <!-- <section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column is-full-width">
-          <h2 class="title is-3">Related Links</h2>
-
-          <div class="content has-text-justified">
-            <p>
-              Needs update
-            </p>
-          
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
-
-  <section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column is-full-width">
-          <h2 class="title is-3">Appearance Interpolation Results</h2>
-          <h3 class="subtitle is-4">Brandenburg Gate</h3>
-          <!-- 添加顶部图像 -->
-          <div style="text-align: center;">
-            <img loading="lazy" src="./materials/video/interpolation/brand/0.jpg" alt="Top Image"
-              style="max-width: 200px; max-height: 200px;">
-            <div>Appearance 0</div>
-          </div>
-
-          <!-- 第一行 -->
-          <div style="display: flex;">
-            <video width="350" controls autoplay loop>
-              <source src="./materials/video/interpolation/brand/1.mp4" type="video/mp4">
-            </video>
-            <video width="350" controls autoplay loop>
-              <source src="./materials/video/interpolation/brand/2.mp4" type="video/mp4">
-            </video>
-            <video width="350" controls autoplay loop>
-              <source src="./materials/video/interpolation/brand/3.mp4" type="video/mp4">
-            </video>
-          </div>
-
-          <!-- 第二行 -->
-          <div style="display: flex;">
-            <div style="text-align: center;">
-              <img loading="lazy" src="./materials/video/interpolation/brand/1.png" alt="Image 1"
-                style="max-width: 200px;max-height: 200px; margin: 0 75px;">
-              <div>Appearance 1</div>
-            </div>
-            <div style="text-align: center;">
-              <img loading="lazy" src="./materials/video/interpolation/brand/2.png" alt="Image 2"
-                style="max-width: 230px;max-height: 230px; margin: 0 75px;">
-              <div>Appearance 2</div>
-            </div>
-            <div style="text-align: center;">
-              <img loading="lazy" src="./materials/video/interpolation/brand/3.png" alt="Image 3"
-                style="max-width: 200px;max-height: 200px; margin: 0 75px;">
-              <div>Appearance 3</div>
-            </div>
-          </div>
-
-
-          <hr style="margin: 30px auto; width: 50%; border-top: 2px solid #ccc;">
-          <h3 class="subtitle is-4" style="text-align: center;">Trevi Fountain</h3>
-
-          <!-- 添加顶部图像 -->
-          <div style="text-align: center;">
-            <img loading="lazy" src="./materials/video/interpolation/trevi/0.jpg" alt="Top Image"
-              style="max-width: 100%; max-height: 200px;">
-            <div>Appearance 0</div>
-          </div>
-
-          <!-- 第一行 -->
-          <div style="display: flex;">
-            <video width="350" controls autoplay loop>
-              <source src="./materials/video/interpolation/trevi/1.mp4" type="video/mp4">
-            </video>
-            <video width="350" controls autoplay loop>
-              <source src="./materials/video/interpolation/trevi/2.mp4" type="video/mp4">
-            </video>
-            <video width="350" controls autoplay loop>
-              <source src="./materials/video/interpolation/trevi/3.mp4" type="video/mp4">
-            </video>
-          </div>
-
-          <!-- 第二行 -->
-          <div style="display: flex;">
-            <div style="text-align: center;">
-              <img loading="lazy" src="./materials/video/interpolation/trevi/1.png" alt="Image 1"
-                style="max-width: 220px;max-height: 200; margin: 0 75px;">
-              <div>Appearance 1</div>
-            </div>
-            <div style="text-align: center;">
-              <img loading="lazy" src="./materials/video/interpolation/trevi/2.png" alt="Image 2"
-                style="max-width: 200px;max-height: 160px; margin: 0 125px;">
-              <div>Appearance 2</div>
-            </div>
-            <div style="text-align: center;">
-              <img loading="lazy" src="./materials/video/interpolation/trevi/3.png" alt="Image 3"
-                style="max-width: 240px;max-height: 200px; margin: 0 60px;">
-              <div>Appearance 3</div>
-            </div>
-          </div>
-
-          <hr style="margin: 30px auto; width: 50%; border-top: 2px solid #ccc;">
-          <h3 class="subtitle is-4" style="text-align: center;">Sacre Coeur</h3>
-
-          <!-- 添加顶部图像 -->
-          <div style="text-align: center;">
-            <img loading="lazy" src="./materials/video/interpolation/sacre/0.jpg" alt="Top Image"
-              style="max-width: 100%; max-height: 200px;">
-            <div>Appearance 0</div>
-          </div>
-
-          <!-- 第一行 -->
-          <div style="display: flex;">
-            <video width="350"  autoplay loop>
-              <source src="./materials/video/interpolation/sacre/1.mp4" type="video/mp4">
-            </video>
-            <video width="350"  autoplay loop>
-              <source src="./materials/video/interpolation/sacre/2.mp4" type="video/mp4">
-            </video>
-            <video width="350"  autoplay loop>
-              <source src="./materials/video/interpolation/sacre/3.mp4" type="video/mp4">
-            </video>
-          </div>
-
-          <!-- 第二行 -->
-          <div style="display: flex;">
-            <div style="text-align: center;">
-              <img loading="lazy" src="./materials/video/interpolation/sacre/1.png" alt="Image 1"
-                style="max-width: 200px;max-height: 200; margin: 0 75px;">
-              <div>Appearance 1</div>
-            </div>
-            <div style="text-align: center;">
-              <img loading="lazy" src="./materials/video/interpolation/sacre/2.png" alt="Image 2"
-                style="max-width: 200px;max-height: 155px; margin: 0 145px;">
-              <div>Appearance 2</div>
-            </div>
-            <div style="text-align: center;">
-              <img loading="lazy" src="./materials/video/interpolation/sacre/3.png" alt="Image 3"
-                style="max-width: 200px;max-height: 200px; margin: 0 50px;">
-              <div>Appearance 3</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-full-width">
-          <h2 class="title is-3">More Comparison Results</h2>
-          <div class="content has-text-justified">
-            <img loading="lazy" src="./static/images/exp_quati_pt.jpg">
-            <p>Comparison on PhotoTourism dataset.</p>
-          </div>
-          <div class="content has-text-justified">
-            <img loading="lazy" src="./static/images/exp_quati_nerf-osr.jpg">
-            <p>Comparison on NeRF-OSR dataset.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
-      <pre>
-      <code>
-        @misc{2024,
-          title={2},
-          author={1},
-          year={2024},
-          eprint={2403.20309},
-          archivePrefix={arXiv},
-          primaryClass={cs.CV}
-        }
-      </code>
-    </pre>
-    </div>
-  </section>
-
-
-  <!-- TODO: update the arxiv link and github -->
-  <footer class="footer">
-    <div class="container">
-      <div class="content has-text-centered">
-        <!-- <a class="icon-link" href="">
-          <i class="fas fa-file-pdf"></i>
-        </a> -->
-        <!-- <a class="icon-link" href="" class="external-link" disabled>
-          <i class="fab fa-github"></i> -->
-        </a>
-      </div>
-      <div class="columns is-centered">
-        <div class="column is-8">
-          <div class="content">
-            <p>
-              This website is licensed under a <a rel="license"
-                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-                Commons Attribution-ShareAlike 4.0 International License</a>.
-            </p>
-            <p>
-              We thank the authors of
-              We thank the authors of <a href="https://nerfies.github.io/">Nerfies</a> that kindly open sourced the
-              template of this website.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+    </footer>
 
 
 
